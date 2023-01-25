@@ -1,7 +1,7 @@
 import { Footer, Header } from "@/components/common";
 import { css } from "@emotion/css";
 
-export const black = "#101010";
+export const black = "#171717";
 export const white = "#fff";
 export const gray = "#f2f2f2";
 const mobileHeaderHeight = 60;
