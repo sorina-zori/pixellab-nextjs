@@ -1,18 +1,19 @@
 import Image from "next/legacy/image";
 import Link from "next/link";
+import { ProductPrice } from ".";
 
 export const ProductTile = ({ product }) => {
-  const { title, image, price } = product;
+  const { title, image, price, id } = product;
   const formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   }).format(price);
 
   return (
-    <article>
+    <article className="text-center">
       <header>
         <div>
-          <Link href="/" title={title}>
+          <Link href={`products/${id}`} title={title}>
             <Image
               alt={`Image for product ${title}`}
               src={image}
@@ -25,14 +26,14 @@ export const ProductTile = ({ product }) => {
         </div>
 
         <h1>
-          <Link href="/" title={title}>
+          <Link href={`products/${id}`} title={title}>
             {title}
           </Link>
         </h1>
       </header>
 
       <section>
-        <span>{formattedPrice}</span>
+        <ProductPrice product={product}></ProductPrice>
       </section>
 
       <footer>{/* add to cart */}</footer>
